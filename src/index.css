@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #1A1A1A;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+}
+
+
+
+input[type="text"] {
+    border-radius: 8px;
+    background-color: #262626;
+    padding: 0.5rem 1rem;
+}
+
+input[type="text"]:focus {
+    outline: solid 1px #5E60CE;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #4EA8DE;
+    position: relative;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background-color: #4EA8DE;
+    border-radius: 50%;
+    opacity: 0;
+}
+
+input[type="checkbox"]:checked {
+    opacity: 1;
+    width: 22px;
+    height: 22px;
+    background-color: #5E60CE;
+    border: 2px solid #5E60CE;
+}
+
+input[type="checkbox"]:checked:hover {
+    background-color: #8284FA;
+    border: 2px solid #8284FA;
+}
+
+button {
+    background-color: #1E6F9F;
+    border-radius: 8px;
+    padding: 16px;
+    color: white;
+}
+
+button:hover {
+    background-color: #4EA8DE;
+}
