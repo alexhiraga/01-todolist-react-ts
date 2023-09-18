@@ -7,29 +7,12 @@ import EmptyTasks from './components/EmptyTasks'
 
 
 function App() {
-    const [tasks, setTasks] = useState<TaskType[]> ([
-        {
-            id: uuidv4(),
-            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
-            isCompleted: false
-        },
-        {
-            id: uuidv4(),
-            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
-            isCompleted: true
-        },
-        {
-            id: uuidv4(),
-            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
-            isCompleted: false
-        },
-    
-    ])
+    const [tasks, setTasks] = useState<TaskType[]>([])
 
-    const reversedTasks = [...tasks].reverse()
+    const reversedTasks = tasks && [...tasks].reverse()
 
     const handleCompleteTask = (id: string, isCompleted: boolean) => {
-        const updatedTasks = tasks.map(task => {
+        const updatedTasks = tasks && tasks.map(task => {
             if(task.id === id) {
                 return {
                     ...task,
@@ -42,7 +25,7 @@ function App() {
     }
 
     const handleDeleteTask = (id: string) => {
-        const updatedTasks = tasks.filter(task => {
+        const updatedTasks = tasks && tasks.filter(task => {
             if(task.id !== id) return task
         })
         setTasks(updatedTasks)
@@ -54,7 +37,7 @@ function App() {
             description,
             isCompleted: false
         }
-        setTasks([...tasks, newTask])
+        if(tasks) setTasks([...tasks, newTask])
     }
 
     return (
@@ -62,8 +45,8 @@ function App() {
             <Header onCreateTask={handleCreateTask} />
             <TasksCount tasks={tasks} />
             <div className="mt-5">
-                {tasks.length ? (
-                    reversedTasks.map(task => {
+                {tasks && tasks.length ? (
+                    reversedTasks && reversedTasks.map(task => {
                         return (
                             <TaskCard 
                                 task={task} 
